@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/container">
+
+    <RelativeLayout
+        android:id="@+id/first_column"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true">
+
+        <View
+            android:id="@+id/red"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#ff0000"
+            android:layout_alignParentTop="true"/>
+
+        <View
+            android:id="@+id/green"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#00ff00"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/second_column"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/first_column">
+
+        <View
+            android:id="@+id/blue"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#0000ff"
+            android:layout_above="@+id/teal"/>
+
+        <View
+            android:id="@+id/teal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#00ffff"
+            android:layout_centerVertical="true"/>
+
+        <View
+            android:id="@+id/yellow"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#ffff00"
+            android:layout_below="@+id/teal"/>
+
+    </RelativeLayout>
+
+    <SeekBar
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#000000"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
