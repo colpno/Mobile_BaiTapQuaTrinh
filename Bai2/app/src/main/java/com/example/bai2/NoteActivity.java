@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -123,23 +124,16 @@ public class NoteActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 
         if (bundle != null) {
-            if (note == null) {
-                // Parent doesn't pass the note data
-                note = new Note();
-                imageAdapter = new ImageAdapter(this);
-            }
-            else {
-                // Parent pass the note data
-                note = bundle.getParcelable("note");
-                imageAdapter = new ImageAdapter(this, note.getImages());
-            }
-
-            imageList.setAdapter(imageAdapter);
+            note = bundle.getParcelable("note");
             position = bundle.getInt("position");
-
-            et_title.setText(note.getTitle());
-            et_content.setText(note.getContent());
         }
+        if (note == null) note = new Note();
+
+        imageAdapter = new ImageAdapter(this, note.getImages());
+        imageList.setAdapter(imageAdapter);
+
+        et_title.setText(note.getTitle());
+        et_content.setText(note.getContent());
     }
 
     @Override
@@ -205,16 +199,30 @@ public class NoteActivity extends AppCompatActivity {
         // Get data
         String title = et_title.getText().toString();
         String content = et_content.getText().toString();
+        int flag = 0;
 
-        // Override note's data with the new one
-        note.setTitle(title);
-        note.setContent(content);
+        if (title.equals("")) {
+            Toast.show(this, "Phải có title");
+            flag = 1;
+        }
+        if (content.equals("")) {
+            Toast.show(this, "Phải có content");
+            flag = 1;
+        }
 
-        // Send result back to MainActivity
-        Intent intent = new Intent();
-        intent.putExtra("note", note);
-        setResult(ResultCode.SAVE, intent);
-        finish();
+        if (flag != 1)  {
+            if (note == null) note = new Note();
+
+            // Override note's data with the new one
+            note.setTitle(title);
+            note.setContent(content);
+
+            // Send result back to MainActivity
+            Intent intent = new Intent();
+            intent.putExtra("note", note);
+            setResult(ResultCode.SAVE, intent);
+            finish();
+        }
     }
 
     private void onDelete() {
