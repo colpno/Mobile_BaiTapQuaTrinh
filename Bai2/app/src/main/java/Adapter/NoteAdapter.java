@@ -18,9 +18,9 @@ public class NoteAdapter extends BaseAdapter {
     public NoteAdapter() {
         this.listNote = new ArrayList<>();
 
-        listNote.add(new Note(this.getCount() + 1,"Note 1", "This is the content of Note 1.", new ArrayList<Bitmap>(){}));
-        listNote.add(new Note(this.getCount() + 1,"Note 2", "This is the content of Note 2.", new ArrayList<Bitmap>(){}));
-        listNote.add(new Note(this.getCount() + 1,"Note 3", "This is the content of Note 3.", new ArrayList<Bitmap>(){}));
+        listNote.add(new Note(this.getCount() + 1,"Note 1", "This is the content of Note 1.", new ArrayList<Bitmap>(){}, "2022-01-02"));
+        listNote.add(new Note(this.getCount() + 1,"Note 2", "This is the content of Note 2.", new ArrayList<Bitmap>(){}, "2022-04-12"));
+        listNote.add(new Note(this.getCount() + 1,"Note 3", "This is the content of Note 3.", new ArrayList<Bitmap>(){}, "2022-08-05"));
     }
 
     public void addItem(Note newNote) {
