@@ -55,11 +55,6 @@ public class ReminderBroadCast extends BroadcastReceiver {
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, 0);
 
-        // Check if the reminder time is in the past, if so, add a day to the calendar
-        if (calendar.getTimeInMillis() < System.currentTimeMillis()) {
-            calendar.add(Calendar.DAY_OF_YEAR, 1);
-        }
-
         // Set the reminder using AlarmManager
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
     }
