@@ -32,6 +32,14 @@ public class Note implements Parcelable {
         this.images = images;
     }
 
+    public Note(long id, String title, String content, ArrayList<Bitmap> images, String createdAt) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.createdAt = createdAt;
+        this.images = images;
+    }
+
     protected Note(Parcel in) {
         id = in.readLong();
         title = in.readString();
