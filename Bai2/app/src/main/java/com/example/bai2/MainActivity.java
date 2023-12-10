@@ -17,10 +17,7 @@ import Adapter.NoteAdapter;
 import Model.Note;
 import Utils.ResultCode;
 import Utils.Toast;
-/* BUG:
-* add: chose image but not show
-* make images horizon
-* */
+
 public class MainActivity extends AppCompatActivity {
     private NoteAdapter noteAdapter;
     private final int REQUEST_CODE = 100;
