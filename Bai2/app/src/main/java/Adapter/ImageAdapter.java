@@ -16,11 +16,6 @@ import java.util.ArrayList;
 public class ImageAdapter extends ArrayAdapter<Bitmap> {
     private final ArrayList<Bitmap> images;
 
-    public ImageAdapter(@NonNull Context context) {
-        super(context, 0);
-        this.images = new ArrayList<>();
-    }
-
     public ImageAdapter(@NonNull Context context, ArrayList<Bitmap> images) {
         super(context, 0, images);
         this.images = images;
